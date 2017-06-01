@@ -1,0 +1,19 @@
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title
+      Categories
+      .pull-right
+        = link to: category_path(@conn, :new), class: "btn btn-xs btn-primary" do
+          Create a Category
+  .panel-body
+    %table.table.table-striped.table-condensed
+      %thead
+        %tr
+          %th Category Name
+          %th Actions
+      %tbody
+        - for category <- @categories do
+          %tr
+            %td= category.name
+            %td.actions
+              = link "Edit", to: category_path(@conn, :edit, category)

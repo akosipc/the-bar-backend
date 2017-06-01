@@ -1,0 +1,28 @@
+- form_for @changeset, @action, fn f ->
+  - if @changeset.action do
+    %h2
+      There where some errors encountered
+
+  .form-group
+    = label f, :name, class: "control-label"
+    = text_input f, :name, class: "form-control"
+    = error_tag f, :name
+
+  .form-group
+    = label f, :description, class: "control-label"
+    = textarea f, :description, class: "form-control"
+    = error_tag f, :description
+
+  .form-group
+    = label f, :instructions, class: "control-label"
+    = textarea f, :instructions, class: "form-control"
+    = error_tag f, :instructions
+
+  .form-group
+    = label f, :drink_type, class: "control-label"
+    = select f, :drink_type, ["", "Aperitif"], class: "form-control"
+    = error_tag f, :drink_type
+
+  .form-actions
+    = submit "Save", class: "btn btn-primary"
+

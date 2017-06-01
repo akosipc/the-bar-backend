@@ -1,0 +1,20 @@
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title
+      Drinks
+      .pull-right
+        = link to: drink_path(@conn, :new), class: "btn btn-xs btn-primary" do
+          Create a Drink
+  .panel-body
+    %table.table.table-striped.table-condensed
+      %thead
+        %tr
+          %th Name
+          %th Actions
+      %tbody
+        - for drink <- @drinks do
+          %tr
+            %td= drink.name
+            %td.actions
+              = link "Show", to: drink_path(@conn, :show, drink)
+              = link "Edit", to: drink_path(@conn, :edit, drink)

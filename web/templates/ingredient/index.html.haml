@@ -1,0 +1,24 @@
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title
+      Ingredients
+      .pull-right
+        = link to: ingredient_path(@conn, :new), class: "btn btn-xs btn-primary" do
+          Create an Ingredient
+  .panel-body
+    %table.table.table-striped.table-condensed
+      %thead
+        %tr
+          %th Name
+          %th Available
+          %th Category
+          %th Actions
+      %tbody
+        - for ingredient <- @ingredients do
+          %tr
+            %td= ingredient.name
+            %td= ingredient.available
+            %td= ingredient.category.name
+            %td.actions
+              = link "Show", to: ingredient_path(@conn, :show, ingredient)
+              = link "Edit", to: ingredient_path(@conn, :edit, ingredient)

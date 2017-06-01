@@ -1,0 +1,33 @@
+- form_for @changeset, @action, fn f ->
+  - if @changeset.action do
+    %h2
+      There where some errors encountered
+
+  .form-group
+    = label f, :name, class: "control-label"
+    = text_input f, :name, class: "form-control"
+    = error_tag f, :name
+
+  .form-group
+    = label f, :alcohol_content, class: "control-label"
+    = number_input f, :alcohol_content, class: "form-control", min: 0, max: 100
+    = error_tag f, :alcohol_content
+
+  .form-group
+    = label f, :description, class: "control-label"
+    = textarea f, :description, class: "form-control"
+    = error_tag f, :description
+
+  .form-group
+    = label f, :category_id, class: "control-label"
+    = select f, :category_id, @categories, class: "form-control"
+    = error_tag f, :category_id
+
+  .checkbox
+    = label f, :available do
+      = checkbox f, :available
+      Ingredient Available
+
+  .form-actions
+    = submit "Save", class: "btn btn-primary"
+

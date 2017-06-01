@@ -21,10 +21,7 @@
             %td= recipe.amount
             %td= recipe.measurement
             %td
-              = recipe.ingredient.name
-              | (
-              = recipe.ingredient.category.name
-              )
+              = recipe.category.name
     
     = link to: drink_recipe_path(@conn, :new, @drink), class: "btn btn-primary" do
       Create Recipe

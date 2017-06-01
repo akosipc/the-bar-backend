@@ -27,8 +27,7 @@ defmodule Thebar.DrinkController do
   def show(conn, %{"id" => id}) do
     drink = 
       Repo.get!(Drink, id)
-      |> Repo.preload([ingredients: :category])
-
+      |> Repo.preload([recipes: :category])
 
     render(conn, "show.html", drink: drink)
   end

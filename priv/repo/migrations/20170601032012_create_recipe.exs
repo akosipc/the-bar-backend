@@ -6,12 +6,12 @@ defmodule Thebar.Repo.Migrations.CreateRecipe do
       add :amount, :decimal
       add :measurement, :string
       add :drink_id, :integer
-      add :ingredient_id, :integer
+      add :category_id, :integer
 
       timestamps()
     end
 
     create index(:recipes, [:drink_id])
-    create index(:recipes, [:ingredient_id])
+    create index(:recipes, [:category_id])
   end
 end

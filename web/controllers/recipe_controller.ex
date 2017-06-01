@@ -1,7 +1,7 @@
 defmodule Thebar.RecipeController do
   use Thebar.Web, :controller
 
-  alias Thebar.{ Drink, Recipe, Ingredient }
+  alias Thebar.{ Drink, Recipe, Category }
 
   plug :scrub_params, "recipe" when action in [:create, :update]
 
@@ -9,15 +9,15 @@ defmodule Thebar.RecipeController do
     drink = Repo.get!(Drink, drink_id)
     changeset = Recipe.changeset(%Recipe{})
 
-    render(conn, "new.html", changeset: changeset, drink: drink, ingredients: ingredients_as_select_options)
+    render(conn, "new.html", changeset: changeset, drink: drink, categories: categories_as_select_options)
   end
 
   def edit(conn, %{"drink_id" => drink_id, "id" => id}) do
     drink = Repo.get!(Drink, drink_id)
     recipe = Repo.get!(Recipe, id)
-    changeset = Recipe.change(recipe)
+    changeset = Recipe.changeset(recipe)
 
-    render(conn, "edit.html", changeset: changeset, recipe: recipe, drink: drink, ingredients: ingredients_as_select_options)
+    render(conn, "edit.html", changeset: changeset, recipe: recipe, drink: drink, categories: categories_as_select_options)
   end
 
   def create(conn, %{"drink_id" => drink_id, "recipe" => recipe_params}) do
@@ -32,7 +32,7 @@ defmodule Thebar.RecipeController do
       {:error, changeset} ->
         conn
         |> put_flash(:error, "There where some errors encountered")
-        |> render("new.html", changeset: changeset, drink: drink, ingredients: ingredients_as_select_options)
+        |> render("new.html", changeset: changeset, drink: drink, categories: categories_as_select_options)
     end
   end
 
@@ -49,14 +49,14 @@ defmodule Thebar.RecipeController do
       {:error, changeset} ->
         conn
         |> put_flash(:error, "There where some errors encountered")
-        |> render("edit.html", changeset: changeset, recipe: recipe, drink: drink, ingredients: ingredients_as_select_options)
+        |> render("edit.html", changeset: changeset, recipe: recipe, drink: drink, categories: categories_as_select_options)
     end
   end
 
-  defp ingredients_as_select_options do
-    Repo.all(Ingredient)
-    |> Enum.map( fn (ingredient) -> 
-      {ingredient.name, ingredient.id}
+  defp categories_as_select_options do
+    Repo.all(Category)
+    |> Enum.map( fn (category) -> 
+      {category.name, category.id}
     end)
   end
 end

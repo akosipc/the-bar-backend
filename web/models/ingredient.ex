@@ -5,7 +5,7 @@ defmodule Thebar.Ingredient do
     field :name, :string
     field :description, :string
     field :available, :boolean
-    field :alcohol_content, :integer
+    field :alcohol_content, :decimal
 
     has_many :recipes, Thebar.Recipe
     has_many :drinks, through: [:recipes, :drink]

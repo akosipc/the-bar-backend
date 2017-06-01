@@ -54,4 +54,13 @@ defmodule Thebar.CategoryController do
         |> render("edit.html", category: category, changeset: changeset)
     end
   end
+
+  def delete(conn, %{"id" => id}) do
+    Repo.get!(Category, id)
+    |> Repo.delete!()
+
+    conn
+    |> put_flash(:info, "Successfully deleted a category")
+    |> redirect(to: category_path(conn, :index))
+  end
 end

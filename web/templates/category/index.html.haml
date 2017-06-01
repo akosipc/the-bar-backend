@@ -17,3 +17,4 @@
             %td= category.name
             %td.actions
               = link "Edit", to: category_path(@conn, :edit, category)
+              = link "Delete", to: category_path(@conn, :delete, category), method: :delete

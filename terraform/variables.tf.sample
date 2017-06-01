@@ -1,0 +1,7 @@
+variable "heroku_api_key" {
+  default = "<Put your heroku ID here>"
+}
+
+variable "secret_key_base" {
+  default = "Replace me"
+}

@@ -1,0 +1,25 @@
+- form_for @changeset, @action, fn f ->
+  - if @changeset.action do
+    %h2
+      There where some errors encountered
+
+  = hidden_input f, :drink_id, value: @drink.id
+
+  .form-group
+    = label f, :amount, class: "control-label"
+    = number_input f, :amount, class: "form-control", min: 0, max: 100
+    = error_tag f, :amount
+
+  .form-group
+    = label f, :measurement, class: "control-label"
+    = text_input f, :measurement, class: "form-control"
+    = error_tag f, :measurement
+
+  .form-group
+    = label f, :ingredient_id, class: "control-label"
+    = select f, :ingredient_id, @ingredients, class: "form-control"
+    = error_tag f, :ingredient_id
+
+  .form-actions
+    = submit "Save", class: "btn btn-primary"
+

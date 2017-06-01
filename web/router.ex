@@ -17,10 +17,11 @@ defmodule Thebar.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    resources "/drinks", DrinkController
+    resources "/drinks", DrinkController do
+      resources "/recipes", RecipeController
+    end
     resources "/ingredients", IngredientController
     resources "/categories", CategoryController
-    resources "/recipes", RecipeController
   end
 
   # Other scopes may use custom stacks.

@@ -2,7 +2,7 @@ defmodule Thebar.Recipe do
   use Thebar.Web, :model
 
   schema "recipes" do
-    field :amount, :float
+    field :amount, :decimal
     field :measurement, :string
     
     belongs_to :drink, Thebar.Drink

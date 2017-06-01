@@ -43,7 +43,6 @@ defmodule Thebar.IngredientController do
         |> put_flash(:info, "Successfully created a ingredient") 
         |> redirect(to: ingredient_path(conn, :index))
       {:error, changeset} ->
-
         conn
         |> put_flash(:error, "There where some errors encountered")
         |> render("new.html", changeset: changeset, categories: categories_for_select_options)
@@ -63,7 +62,6 @@ defmodule Thebar.IngredientController do
         conn
         |> put_flash(:error, "There where some errors encountered")
         |> render("edit.html", ingredient: ingredient, changeset: changeset, categories: categories_for_select_options)
-
     end
   end
 
@@ -73,7 +71,4 @@ defmodule Thebar.IngredientController do
       {category.name, category.id}
     end)
   end
-
-
-
 end

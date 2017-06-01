@@ -1,0 +1,32 @@
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title
+      = @drink.name
+  .panel-body
+    %p
+      = @drink.description
+    %p
+      = @drink.instructions
+    %hr
+
+    %table.table.table-striped.table-condensed
+      %thead
+        %tr
+          %th Amount
+          %th Measurement
+          %th Ingredient Name | Category
+      %tbody
+        - for recipe <- @drink.recipes do
+          %tr
+            %td= recipe.amount
+            %td= recipe.measurement
+            %td
+              = recipe.ingredient.name
+              | (
+              = recipe.ingredient.category.name
+              )
+    
+    = link to: drink_recipe_path(@conn, :new, @drink), class: "btn btn-primary" do
+      Create Recipe
+
+

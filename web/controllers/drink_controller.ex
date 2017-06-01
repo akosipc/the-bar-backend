@@ -25,7 +25,10 @@ defmodule Thebar.DrinkController do
   end
 
   def show(conn, %{"id" => id}) do
-    drink = Repo.get!(Drink, id)
+    drink = 
+      Repo.get!(Drink, id)
+      |> Repo.preload([ingredients: :category])
+
 
     render(conn, "show.html", drink: drink)
   end

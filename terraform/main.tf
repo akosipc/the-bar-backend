@@ -4,7 +4,7 @@ provider "heroku" {
 }
 
 resource "heroku_app" "default" {
-  name   = "the-bar"
+  name   = "le-bar"
   region = "us"
 
   config_vars {

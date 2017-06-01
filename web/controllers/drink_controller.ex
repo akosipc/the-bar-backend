@@ -3,7 +3,7 @@ defmodule Thebar.DrinkController do
 
   plug :scrub_params, "drink" when action in [:create, :update]
 
-  alias Thebar.Drink
+  alias Thebar.{ Drink, Recipe }
 
   def index(conn, _) do
     drinks = Repo.all(Drink)
@@ -25,11 +25,10 @@ defmodule Thebar.DrinkController do
   end
 
   def show(conn, %{"id" => id}) do
-    drink = 
-      Repo.get!(Drink, id)
-      |> Repo.preload([recipes: :category])
+    drink = Repo.get!(Drink, id)
+    recipes = Repo.all(from r in Recipe, where: r.drink_id == ^id, preload: :category, order_by: r.inserted_at)
 
-    render(conn, "show.html", drink: drink)
+    render(conn, "show.html", drink: drink, recipes: recipes)
   end
 
   def create(conn, %{"drink" => drink_params}) do

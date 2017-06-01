@@ -14,16 +14,16 @@
         %tr
           %th Amount
           %th Measurement
-          %th Ingredient Name | Category
+          %th Ingredient
+          %th Actions
       %tbody
-        - for recipe <- @drink.recipes do
+        - for recipe <- @recipes do
           %tr
             %td= recipe.amount
             %td= recipe.measurement
+            %td= recipe.category.name
             %td
-              = recipe.category.name
+              = link "Edit", to: drink_recipe_path(@conn, :edit, @drink, recipe)
     
     = link to: drink_recipe_path(@conn, :new, @drink), class: "btn btn-primary" do
       Create Recipe
-
-

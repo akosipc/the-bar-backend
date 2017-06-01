@@ -1,4 +1,4 @@
-# Thebar
+# The Bar (Backend)
 
 To start your Phoenix app:
 

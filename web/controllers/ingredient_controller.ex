@@ -15,17 +15,15 @@ defmodule Thebar.IngredientController do
 
   def new(conn, _) do
     changeset = Ingredient.changeset(%Ingredient{})
-    categories = categories_for_select_options
 
-    render(conn, "new.html", changeset: changeset, categories: categories)
+    render(conn, "new.html", changeset: changeset, categories: categories_for_select_options())
   end
 
   def edit(conn, %{"id" => id}) do
     ingredient = Repo.get!(Ingredient, id)
     changeset = Ingredient.changeset(ingredient)
-    categories = categories_for_select_options
 
-    render(conn, "edit.html", changeset: changeset, ingredient: ingredient, categories: categories)
+    render(conn, "edit.html", changeset: changeset, ingredient: ingredient, categories: categories_for_select_options())
   end
 
   def show(conn, %{"id" => id}) do
@@ -45,7 +43,7 @@ defmodule Thebar.IngredientController do
       {:error, changeset} ->
         conn
         |> put_flash(:error, "There where some errors encountered")
-        |> render("new.html", changeset: changeset, categories: categories_for_select_options)
+        |> render("new.html", changeset: changeset, categories: categories_for_select_options())
     end
   end
 
@@ -61,7 +59,7 @@ defmodule Thebar.IngredientController do
       {:error, changeset} ->
         conn
         |> put_flash(:error, "There where some errors encountered")
-        |> render("edit.html", ingredient: ingredient, changeset: changeset, categories: categories_for_select_options)
+        |> render("edit.html", ingredient: ingredient, changeset: changeset, categories: categories_for_select_options())
     end
   end
 

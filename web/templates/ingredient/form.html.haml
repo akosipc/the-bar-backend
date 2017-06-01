@@ -10,7 +10,7 @@
 
   .form-group
     = label f, :alcohol_content, class: "control-label"
-    = number_input f, :alcohol_content, class: "form-control", min: 0, max: 100
+    = number_input f, :alcohol_content, class: "form-control", min: 0, max: 100, step: "any"
     = error_tag f, :alcohol_content
 
   .form-group

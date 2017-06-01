@@ -26,3 +26,4 @@ erl_crash.dump
 terraform/variables.tf
 *.tfstate
 *.backup
+.tool-versions

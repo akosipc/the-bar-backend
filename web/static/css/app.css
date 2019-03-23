@@ -1,1 +1,25 @@
 /* This file is for your main application css. */
+
+body {
+  background: black;
+}
+
+.the-bar-container {
+  display: flex;
+
+  height: 100vh;
+
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.the-bar-container > .header {
+  color: #E5E5E5;
+  border-bottom: none;
+}
+
+.the-bar-container > .contact {
+  color: #EEEEEE;
+}

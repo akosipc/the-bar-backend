@@ -8,21 +8,29 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> G && D | Geeks and Drinks | Mobile Cocktail Bar </title>
+    <title> G && D | Geeks and Drinks | The Modern Cocktail Bar Experience </title>
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
   <body>
     <div class='the-bar-container'>
-      <h1 class='header'> Geeks and Drinks </h1>
+      <h1 class='header'> Geeks && Drinks </h1>
+      <h4 class='subline'> The Modern Cocktail Bar Experience </h4>
 
       <div class='contact'>
-        For Bookings: e-mail us @
+        Bookings ? E-mail us @
         <a href='mailto:pete@geeksanddrinks.xyz'>
-          pete @ geeksanddrinks.xyz
+          pete@geeksanddrinks.xyz
         </a>
+        : ""
       </div>
     </div>
+
+    <div class='notice'>
+      Of course, this site is still a WIP.
+    </div>
+
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>

@@ -2,12 +2,13 @@
 
 body {
   background: black;
+  font-family: "PT Mono", monospace;
 }
 
 .the-bar-container {
   display: flex;
 
-  height: 100vh;
+  height: 98vh;
 
   text-align: center;
   align-items: center;
@@ -18,8 +19,21 @@ body {
 .the-bar-container > .header {
   color: #E5E5E5;
   border-bottom: none;
+
+  font-size: 3em;
+}
+
+.the-bar-container > .subline {
+  color: #E4E5E4;
+  padding-bottom: 32px;
 }
 
 .the-bar-container > .contact {
   color: #EEEEEE;
+}
+
+.notice {
+  color: #111; 
+  text-align: right;
+  font-size: 11px;
 }
